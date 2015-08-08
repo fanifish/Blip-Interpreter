@@ -1,7 +1,5 @@
 /* 
 *
-*Name Faniel Ghirmay
-*Ut eid: ffg92 
 *Project  9 Phase C  Blip programming language main Program
 *
 */
@@ -9,61 +7,9 @@
 #include "MemHeap.h"
 
 int main(int argc, char* argv[]){
-
 	printf("running %s\n", argv[1]); 
 	set_input(argv[1]);
 	run();	
-/*				
-	printf("running test2.blip\n"); 
-	set_input("test2.blip");
-	run();
-
-	printf("running test3.blip\n"); 
-	set_input("test3.blip");
-	run();
-
-	printf("running test4.blip\n"); 
-	set_input("test4.blip");
-	run();
-	printf("running test5.blip\n"); 
-	set_input("test5.blip");
-	run();
-	printf("running test6.blip\n"); 
-	set_input("test6.blip");
-	run();
-
-	printf("running test7.blip\n"); 
-	set_input("test7.blip");
-	run();
-
-	printf("running test8.blip\n"); 
-	set_input("test8.blip");
-	run();
-	printf("running test9.blip\n");
-	set_input("test9.blip");
-	run();
-	printf("running test10.blip\n");
-        set_input("test10.blip");
-        run();
-        printf("running test11.blip\n");
-        set_input("test11.blip");
-        run();
-
-        printf("running test12.blip\n");
-        set_input("test12.blip");
-        run();
-
-        printf("running test13.blip\n");
-        set_input("test13.blip");
-        run();
-
-        printf("running test14.blip\n");
-        set_input("test14.blip");
-        run();
-        printf("running test15.blip\n");
-        set_input("test15.blip");
-        run();
-*/
 }
 void run(){
 	tree symbolTable;
