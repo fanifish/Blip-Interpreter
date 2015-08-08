@@ -1,0 +1,28 @@
+var i 0
+do < i 40
+    do < i 30
+        do < i 20
+            do < i 10
+                do < i 5
+                    output i
+                    text \n
+                    set i + i 1
+                od 
+                output i
+                text \n
+                set i + i 2
+            od
+            output i
+            text \n
+            set i + i 4
+        od
+        output i
+        text \n
+        set i + i 1
+    od
+    output i
+    text \n
+    set i + i 2
+od
+
+                    

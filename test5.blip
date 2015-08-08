@@ -1,0 +1,11 @@
+var i 0
+do < i 10
+    output + i 1
+    set i + i 1
+od
+
+do 0 
+    output "This is bad!\n"
+od 
+
+

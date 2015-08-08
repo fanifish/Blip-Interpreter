@@ -1,0 +1,36 @@
+// To test a really long loop
+var i 0
+do < i 10000
+    var a 0 
+    var b 0 
+    var c 0 
+    var d 0 
+    var e 0 
+    var f 0 
+    var g 0 
+    var h 0 
+    var j 0 
+    var k 0 
+    var l 0 
+    var m 0 
+    var n 0 
+    var o 0 
+
+    set  a 1 
+    set  b 2 
+    set  c 3 
+    set  d 4 
+    set  e 5 
+    set  f 6 
+    set  g 7 
+    set  h 8 
+    set  j 1 
+    set  k 2 
+    set  l 3 
+    set  m 4 
+    set  n 5 
+    set  o 6 
+    set i + i 1
+od
+    
+

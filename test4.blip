@@ -1,0 +1,42 @@
+var x 1
+
+var y 2
+set y 1
+
+if < + x 1 y
+    text "This is bad!\n"
+else 
+    text "Good, works!\n"
+fi
+
+if > + x 1 y
+    text "Good, works!\n"
+else 
+    text "This is bad!\n"
+fi
+
+if > y + x 1 
+    text "This is bad!\n"
+else 
+    text "Good, works!\n"
+fi
+
+if != + x 1 y
+    text "Good, works!\n"
+    set y + x 1
+else 
+    text "This is bad!\n"
+fi
+
+if >= + x 1 y
+    text "Good, works!\n"
+else 
+    text "This is bad!\n"
+fi
+
+if <= y + x 1 
+    text "Good, works!\n"
+else 
+    text "This is bad!\n"
+fi
+

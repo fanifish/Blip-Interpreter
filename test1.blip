@@ -1,0 +1,18 @@
+// this is just a comment
+
+
+defun fact params n smarap
+	if == n 0
+		return 1
+	fi
+	return * n call fact args - n 1 sgra
+nufed
+
+output call fact args 10 sgra
+text \n
+
+output + 2 + 3 4
+text "My very own implimentation of scripting language\n"
+
+text "I think this project was hard and almost impossible to finish on time but I was able to finish most of it on time yay me that was awsome\n"
+

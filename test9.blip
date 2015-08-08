@@ -1,0 +1,13 @@
+// simple functions
+
+defun foo params smarap
+    output 42
+nufed
+
+var x call foo args sgra
+text \n
+
+set x call foo args sgra
+text \n
+
+

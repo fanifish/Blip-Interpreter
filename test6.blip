@@ -1,0 +1,38 @@
+// Testing nested loops
+
+var i 0
+var j 0
+do < i 3 
+    do < j 2
+        output * + i 1 + j 1
+        text \n
+        set j + 1 j
+    od
+    set i + 1 i
+od
+
+set i 0
+set j 0
+
+do < i 3
+    set j 0
+    do < j 2
+        output * + i 1 + j 1
+        text \n
+        set j + 1 j
+    od
+    set i + 1 i
+od
+
+set j 0
+set i 0
+do < i 4
+    if == i 3
+        set i j
+        set j + 1 j
+    fi
+    output i
+    text \n
+    set i + 1 i
+od
+

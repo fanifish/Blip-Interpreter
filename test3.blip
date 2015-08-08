@@ -1,0 +1,92 @@
+var y 2
+if + y ~ 1 
+    if + y ~ 2 
+	    text " Oops! somethings wrong in the nested if evaluation\n "
+    else 
+    	text "Hurray! Nested if works!\n"
+    fi
+fi
+
+
+if 1 
+    if 1
+        if 1 
+            if 1
+                if 1
+                    if 1
+                        if 1
+                            if 1
+                                if 1
+                                    if 1
+                                        if 1
+                                            if 1 
+                                                if 1
+                                                    text "Good, works!\n"
+                                                else fi
+                                            else fi
+                                        else fi
+                                    else fi
+                                else fi
+                            else fi
+                        else fi
+                    else fi
+                else fi
+            else fi
+        else fi
+    else fi
+else fi
+
+if 1 
+    if 1
+        if 1 
+            if 1
+                if 1
+                    if 1
+                        if 0
+                            if 1
+                                text "This is bad!\n"
+                                if 1
+                                    text "This is bad!\n"
+                                    if 1
+                                        text "This is bad!\n"
+                                        if 1
+                                            text "This is bad!\n"
+                                            if 1 
+                                                text "This is bad!\n"
+                                                if 1
+                                                    text "This is bad!\n"
+                                                else fi
+                                            else fi
+                                        else fi
+                                    else fi
+                                else fi
+                            else fi
+                        else 
+                            text "Good, works!\n"
+                        fi
+                    else 
+                        text "This is bad!\n"
+                    fi
+                else 
+                    text "This is bad!\n"
+                fi
+            else 
+                text "This is bad!\n"
+            fi
+        else fi
+    else fi
+else fi
+
+if 1
+    if 1
+        if 1
+            if 0 
+            else 
+            fi
+            text "Good, this works\n"
+        fi
+    else 
+        text "This is bad\n"
+    fi
+    text "Good, this works\n"
+fi 
