@@ -1,80 +1,23 @@
-# New Makefile that automatically depends itself
-#
-# $Id: Makefile,v 1.3 1996/12/17 19:52:37 chase Exp $
-#
+C = g++ 
+FLAGS = -g -c
 
-IFLAGS = 
-DFLAGS = 
-CXX = g++ --std=c++11
-CC  = $(GCC)
-GCC = g++ --std=c++11
-LD  = $(CXX)
+SOURCEDIR = src
+BUILDDIR = bin
+LIB = inc
+EXECUTABLE = blip
+SOURCES = $(wildcard $(SOURCEDIR)/*.cpp)
+OBJECTS = $(patsubst $(SOURCEDIR)/*.cpp,$(BUILDDIR)/%.o,$(SOURCES))
 
-LIBS = 
+all: dir $(BUILDDIR)/$(EXECUTABLE)
 
-WFLAGS = -Wall 
-SYMFLAGS = -g
+dir:
+	mkdir -p $(BUILDDIR)
 
-PROFILE = #-pg 
-OPTFLAGS =#-O
-CFLAGS = $(OPTFLAGS) $(PROFILE) $(WFLAGS) $(IFLAGS) $(SYMFLAGS)
-CXXFLAGS = $(CFLAGS)
-CPPFLAGS = $(IFLAGS) $(DFLAGS)
-LDFLAGS = $(PROFILE) -g 
+$(BUILDDIR)/$(EXECUTABLE): $(OBJECTS)
+	$(CC) $^ -o $@
 
-PROGRAM = blip
-#CXXSRCS = Source.cpp
-
-CXXSRCS = $(shell ls *.cpp)
-          
-
-SRCS = $(CXXSRCS) 
-
-OBJS = $(CXXSRCS:.cpp=.o)
-
-all: $(PROGRAM)
-
-$(PROGRAM): $(OBJS)
-	$(LD) -o $@ $(LDFLAGS) $(OBJS) $(LIBS)
-
-test: $(PROGRAM)
-	./$(PROGRAM)
+$(OBJECTS): $(BUILDDIR)/%.o : $(SOURCEDIR)/%.cpp
+	$(CC) $(FLAGS) $< -o $@ $(LIB)/%.h
 
 clean:
-	-rm -f $(OBJS) $(PROGRAM)
-
-tidy:
-	-rm -f *.BAK *.bak *.CKP
-
-undepend:
-	-rm -f $(OBJS:%.o=.%.d) 
-
-spotless: tidy clean undepend
-
-.y.cpp:
-	$(BISON) $(BISONFLAGS) -o $@ $<
-	mv $@.h $*.h
-	mv $@.output $*.output
-.l.cpp:
-	$(FLEX) ${FLEXFLAGS} -t $< > $@
-
-# auto depend stuff for GNU make only
-depend: undepend
-	@echo ""
-	@echo "Dependences are handled automatically, just \"make\""
-
-ifneq ($(strip $(CSRCS)),)
-.%.d: %.c 
-	$(SHELL) -ec '$(GCC) -MM $(CPPFLAGS) $< > $@'
-
-
-include $(CSRCS:%.c=.%.d)
-endif 
-
-ifneq ($(strip $(CXXSRCS)),)
-.%.d: %.cpp
-	$(SHELL) -ec '$(GCC) -MM $(CPPFLAGS) $< > $@'
-
-include $(CXXSRCS:%.cpp=.%.d) 
-endif 
-
+	rm -f $(BUILDDIR)/*o $(BUILDDIR)/$(EXECUTABLE)
