@@ -1,12 +1,13 @@
-C = g++ 
-FLAGS = -g -c
+CC = g++ 
+FLAGS = -g -c -std=c++11
 
-SOURCEDIR = src
-BUILDDIR = bin
-LIB = inc
-EXECUTABLE = blip
+SOURCEDIR =src
+BUILDDIR =bin
+LIB =inc
+EXECUTABLE =blip
 SOURCES = $(wildcard $(SOURCEDIR)/*.cpp)
-OBJECTS = $(patsubst $(SOURCEDIR)/*.cpp,$(BUILDDIR)/%.o,$(SOURCES))
+OBJECTS = $(addprefix bin/,$(notdir $(SOURCES:.cpp=.o)))
+
 
 all: dir $(BUILDDIR)/$(EXECUTABLE)
 
@@ -17,7 +18,7 @@ $(BUILDDIR)/$(EXECUTABLE): $(OBJECTS)
 	$(CC) $^ -o $@
 
 $(OBJECTS): $(BUILDDIR)/%.o : $(SOURCEDIR)/%.cpp
-	$(CC) $(FLAGS) $< -o $@ $(LIB)/%.h
+	$(CC) $(FLAGS) $< -o $@ -I $(LIB)
 
 clean:
 	rm -f $(BUILDDIR)/*o $(BUILDDIR)/$(EXECUTABLE)

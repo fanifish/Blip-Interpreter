@@ -1,6 +1,6 @@
 // To test a really long loop
 var i 0
-do < i 10000
+do < i 1000
     var a 0 
     var b 0 
     var c 0 
